@@ -27,7 +27,17 @@ module.exports = {
 				customer: customer
 			});
 		});
+	},
+
+	index: function (req, res, next) {
+		Customer.find(function foundCustomer(err, customers) {
+			if (err) return next(err);
+			
+			res.view({
+				customers: customers
+			});
+		});
 	}
-	
+
 };
 
