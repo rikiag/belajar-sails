@@ -21,11 +21,11 @@ module.exports = {
 		Stock.create(req.params.all(), function stockCreate(err, stock) {
 			if (err) return next(err);
 
-			res.json(stock);
+			res.redirect('customer/show/' + stock.owner);
 		});
 	}
 
 
-	
+
 };
 
